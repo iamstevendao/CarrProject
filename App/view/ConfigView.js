@@ -5,19 +5,18 @@ import {
   StyleSheet,
   ScrollView,
   View,
-  Image,
   Text,
+  FlatList
 } from 'react-native';
 import Constant from '../src/Constant';
 
 const window = Dimensions.get('window');
-const uri = 'https://pickaface.net/gallery/avatar/Opi51c74d0125fd4.png';
 
 const styles = StyleSheet.create({
   menu: {
     flex: 1,
     width: window.width,
-    height: window.height,
+    height: window.height - 30,
     backgroundColor: '#fff',
     padding: 20,
   },
@@ -37,36 +36,32 @@ const styles = StyleSheet.create({
     top: 20,
   },
   item: {
-    fontSize: 14,
-    fontWeight: '300',
+    fontSize: 20,
+    fontWeight: '400',
     paddingTop: 5,
   },
+  topic: {
+    fontSize: 30,
+    fontWeight: '700',
+    paddingTop: 10
+  }
 });
 
 export default function ConfigView({ onItemSelected }) {
   return (
     <View style={styles.menu}>
       <ScrollView scrollsToTop={false} >
-        <View style={styles.avatarContainer}>
-          <Image
-            style={styles.avatar}
-            source={{ uri }}
-          />
-          <Text style={styles.name}>Your name</Text>
-        </View>
-
-        <Text
-          onPress={() => onItemSelected('About')}
-          style={styles.item}>
-          About
-        </Text>
-
-        <Text onPress={() => onItemSelected('Contacts')}
-          style={styles.item}>
-          Contacts
-        </Text>
+        <Text style={styles.topic}>Topic</Text>
+        <FlatList
+          data={Constant.TOPIC}
+          renderItem={({ item }) =>
+            <Text style={styles.item}
+              onPress={(item) => onItemSelected(item)}>{item.key}
+            </Text>
+          }
+        />
       </ScrollView>
-      <Text>By StevenDao</Text>
+      <Text>{Constant.BY_STEVEN}</Text>
     </View>
   );
 }
