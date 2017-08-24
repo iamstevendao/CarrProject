@@ -8,6 +8,7 @@ import {
   Image,
   Text,
 } from 'react-native';
+import Constant from '../src/Constant';
 
 const window = Dimensions.get('window');
 const uri = 'https://pickaface.net/gallery/avatar/Opi51c74d0125fd4.png';
@@ -17,7 +18,7 @@ const styles = StyleSheet.create({
     flex: 1,
     width: window.width,
     height: window.height,
-    backgroundColor: 'gray',
+    backgroundColor: '#fff',
     padding: 20,
   },
   avatarContainer: {
@@ -44,29 +45,29 @@ const styles = StyleSheet.create({
 
 export default function ConfigView({ onItemSelected }) {
   return (
-    <ScrollView scrollsToTop={false} style={styles.menu}>
-      <View style={styles.avatarContainer}>
-        <Image
-          style={styles.avatar}
-          source={{ uri }}
-        />
-        <Text style={styles.name}>Your name</Text>
-      </View>
+    <View style={styles.menu}>
+      <ScrollView scrollsToTop={false} >
+        <View style={styles.avatarContainer}>
+          <Image
+            style={styles.avatar}
+            source={{ uri }}
+          />
+          <Text style={styles.name}>Your name</Text>
+        </View>
 
-      <Text
-        onPress={() => onItemSelected('About')}
-        style={styles.item}
-      >
-        About
-      </Text>
+        <Text
+          onPress={() => onItemSelected('About')}
+          style={styles.item}>
+          About
+        </Text>
 
-      <Text
-        onPress={() => onItemSelected('Contacts')}
-        style={styles.item}
-      >
-        Contacts
-      </Text>
-    </ScrollView>
+        <Text onPress={() => onItemSelected('Contacts')}
+          style={styles.item}>
+          Contacts
+        </Text>
+      </ScrollView>
+      <Text>By StevenDao</Text>
+    </View>
   );
 }
 
