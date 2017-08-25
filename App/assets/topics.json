@@ -1,0 +1,34 @@
+[
+  {
+    "key": "Technology",
+    "active": true
+  },
+  {
+    "key": "Computer",
+    "active": true
+  },
+  {
+    "key": "Science",
+    "active": true
+  },
+  {
+    "key": "Music",
+    "active": true
+  },
+  {
+    "key": "Movies",
+    "active": true
+  },
+  {
+    "key": "Celebrities",
+    "active": true
+  },
+  {
+    "key": "Life",
+    "active": true
+  },
+  {
+    "key": "Sport",
+    "active": true
+  }
+]

@@ -1,5 +1,5 @@
 import React from 'react';
-import Tts from 'react-native-tts';
+//import Tts from 'react-native-tts';
 import SideMenu from 'react-native-side-menu';
 import ConfigView from './App/view/ConfigView';
 import ContentView from './App/view/ContentView'
@@ -29,8 +29,8 @@ export default class App extends React.Component {
   }
 
   onConfigSelected(item) {
+    console.log(item);
     this.setState({
-      isOpen: false,
       selectedItem: item,
     });
   }
@@ -44,7 +44,7 @@ export default class App extends React.Component {
     }
   }
   render() {
-    const menu = <ConfigView onItemSelected={this.onConfigSelected} />;
+    const menu = <ConfigView />;
     return (
       <SideMenu menu={menu}
         isOpen={this.state.isOpen}
